@@ -1,5 +1,6 @@
 import React from "react";
 import DragNDrop from "./DragNDrop";
+import {Gallery} from "react-grid-gallery";
 
 const GalleryImg = ({
   image,
@@ -7,7 +8,7 @@ const GalleryImg = ({
   selectedImages,
   setSelectedImages,
   handleDragStart,
-  handleDragOver,
+  handleDrop,
   isDragging,
   draggedIndex,
 }) => {
@@ -17,7 +18,7 @@ const GalleryImg = ({
       className={
         "group relative before:content-[''] before:absolute before:h-full before:w-full before:rounded-lg before:transition-colors before:cursor-move" +
         (index === 0 ? " md:col-span-2 md:row-span-2" : " col-span-1") +
-        (selectThumbnails.find((photo) => photo.id === image.id)
+        (selectedImages.find((photo) => photo.id === image.id)
           ? " opacity-100"
           : " hover:before:bg-black/50")
       }
@@ -25,18 +26,18 @@ const GalleryImg = ({
       onDragStart={() => handleDragStart(image)}
       onDrop={() => handleDrop(index)}
     >
-      {/*<Image
-        src={image.thumbnail}
+      <Gallery
+        src={image.image}
         alt={image.id}
         height={index === 0 ? 390 : 184}
         width={index === 0 ? 390 : 184}
         className={
           "h-full w-full max-w-full rounded-lg object-contain border-2" +
           " " +
-          (selectThumbnails.find((photo) => photo.id === image.id) &&
+          (selectedImages.find((photo) => photo.id === image.id) &&
             "opacity-70")
         }
-      />*/}
+      />
       <input
         type="checkbox"
         name={image.id}
@@ -44,19 +45,19 @@ const GalleryImg = ({
         className={
           "absolute top-4 left-4 h-5 w-5 accent-blue-500 group-hover:opacity-100 transition-opacity delay-100 duration-100 ease-linear cursor-pointer" +
           " " +
-          (selectThumbnails.find((photo) => photo.id === image.id)
+          (selectedImages.find((photo) => photo.id === image.id)
             ? "opacity-100"
             : "opacity-0")
         }
         checked={
-          selectThumbnails.find((photo) => photo.id === image.id) ? true : false
+          selectedImages.find((photo) => photo.id === image.id) ? true : false
         }
         onChange={() => {
-          if (selectThumbnails.find((photo) => photo.id === image.id))
-            setSelectThumbnails(
-              selectThumbnails.filter((photo) => photo.id !== image.id)
+          if (selectedImages.find((photo) => photo.id === image.id))
+            setSelectedImages(
+              selectedImages.filter((photo) => photo.id !== image.id)
             );
-          else setSelectThumbnails([...selectThumbnails, image]);
+          else setSelectedImages([...selectedImages, image]);
         }}
       />
       <DragNDrop
