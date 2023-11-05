@@ -8,7 +8,7 @@ const GallerySelector = ({
   return (
     <nav className="py-4 px-6">
       <article className="flex flex-row justify-between items-center">
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-2xl font-bold text-[#005582]">
           {selectThumbnails.length === 0 ? (
             "Gallery"
           ) : (
@@ -21,7 +21,7 @@ const GallerySelector = ({
                 name="select"
                 id="select"
                 checked={selectThumbnails.length > 0}
-                className="h-5 w-5 accent-[#ee6969] cursor-pointer"
+                className="h-5 w-5 cursor-pointer"
                 onChange={() => setSelectThumbnails([])}
               />
               {selectThumbnails.length} Files Selected
@@ -29,7 +29,7 @@ const GallerySelector = ({
           )}
         </h1>
         <button
-          className="text-red-500 font-medium text-lg"
+          className="text-[#ff4e50] font-medium text-xl"
           onClick={handleDeleteClick}
         >
           Delete files

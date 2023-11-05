@@ -26,7 +26,6 @@ function App() {
     <>
       <div className="items-center justify-center text-center text-5xl text-orange-600">
         <Gallery imgData={imgData} />
-        <h2 className="text-5xl text-orange-600">render would do here</h2>
       </div>
     </>
   );

@@ -20,7 +20,9 @@ const ImgUpload = ({handleFileChange}) => {
           width={20}
           priority
         />
-        <span className="whitespace-nowrap text-sm">Add Images</span>
+        <span className="whitespace-nowrap text-sm text-[#005582]">
+          Add Images
+        </span>
       </div>
     </div>
   );
