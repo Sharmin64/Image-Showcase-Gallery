@@ -1,15 +1,15 @@
 import React from "react";
 
 const GallerySelector = ({
-  selectedImages,
-  setSelectedImages,
-  handleDeleteImages,
+  selectThumbnails,
+  setSelectThumbnails,
+  handleDeleteClick,
 }) => {
   return (
     <nav className="py-4 px-6">
       <article className="flex flex-row justify-between items-center">
         <h1 className="text-2xl font-bold">
-          {selectedImages.length === 0 ? (
+          {selectThumbnails.length === 0 ? (
             "Gallery"
           ) : (
             <label
@@ -20,17 +20,17 @@ const GallerySelector = ({
                 type="checkbox"
                 name="select"
                 id="select"
-                checked={selectedImages.length > 0}
+                checked={selectThumbnails.length > 0}
                 className="h-5 w-5 accent-[#ee6969] cursor-pointer"
-                onChange={() => setSelectedImages([])}
+                onChange={() => setSelectThumbnails([])}
               />
-              {selectedImages.length} Files Selected
+              {selectThumbnails.length} Files Selected
             </label>
           )}
         </h1>
         <button
-          className="text-red-500 font-medium"
-          onClick={handleDeleteImages}
+          className="text-red-500 font-medium text-lg"
+          onClick={handleDeleteClick}
         >
           Delete files
         </button>

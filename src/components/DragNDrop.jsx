@@ -1,6 +1,7 @@
 import React from "react";
 
 const DragNDrop = ({isDragging, draggedIndex, image}) => {
+  //console.log(image);
   return (
     isDragging &&
     Number(draggedIndex) === Number(image.id) && (

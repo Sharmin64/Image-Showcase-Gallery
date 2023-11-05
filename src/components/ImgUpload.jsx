@@ -1,5 +1,4 @@
 import React from "react";
-import {Gallery} from "react-grid-gallery";
 
 const ImgUpload = ({handleFileChange}) => {
   return (
@@ -10,18 +9,18 @@ const ImgUpload = ({handleFileChange}) => {
         name="images"
         id="images"
         className="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer"
-        title="Try to upload photos..."
+        title="upload photos..."
         onChange={handleFileChange}
       />
       <div className="h-full w-full flex flex-col justify-center items-center gap-y-4">
-        <Gallery
+        <img
           src="/placeholder.png"
           alt="placeholder"
           height={20}
           width={20}
           priority
         />
-        <span className="whitespace-nowrap">Add Images</span>
+        <span className="whitespace-nowrap text-sm">Add Images</span>
       </div>
     </div>
   );
